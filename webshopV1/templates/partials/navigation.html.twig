@@ -1,0 +1,21 @@
+{% set route = app.request.attributes.get('_route') %}
+{% set route_params = app.request.attributes.get('_route_params') %}
+{% set params = route_params|merge(app.request.query.all) %}
+
+<nav class="navbar fixed-top navbar-light bg-light">
+	<div class="container-lg">
+		<a class="navbar-brand">Logo</a>
+		<ul class="navbar-nav d-flex flex-row">
+			<li class="nav-item px-2">
+				<a class="nav-link active" aria-current="page" href="#">{% trans %}Home{% endtrans %}</a>
+			</li>
+			<li class="nav-item px-2">
+				<a class="nav-link" href="#">{% trans %}Login{% endtrans %}</a>
+			</li>
+			{{ dump(params)}}
+			<li class="nav-item px-2">
+				<p class="nav-link" href="#"><a style="color:grey; text-decoration:none" href="{{ path(route, params|merge({ _locale: 'nl' })) }}">NL</a> | <a style="color:grey; text-decoration:none" href="{{ path(route, params|merge({ _locale: 'en' })) }}">EN</a></p>
+			</li>
+		</ul>
+	</div>
+</nav>

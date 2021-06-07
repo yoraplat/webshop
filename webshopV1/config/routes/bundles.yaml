@@ -1,0 +1,9 @@
+# Front End
+front_end:
+  resource: '../../src/Controller/FrontEnd/'
+  type: 'annotation'
+  # this is added to the beginning of all imported route URLs
+  prefix: '/'
+  # this is added to the beginning of all imported route names
+  name_prefix: 'front_end_'
+  # these requirements are added to all imported routes

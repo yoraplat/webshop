@@ -1,0 +1,161 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <br>
+</div>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasFilters" role="button"
+                aria-controls="offcanvasFilters">{% trans %}Select filters{% endtrans %}</a>
+        </div>
+    </div>
+
+    <div class="row product-list-scroll">
+        {# Product list #}
+        <div class="col">
+            {# {% include 'front_end/partials/product_list.html.twig' with products %} #}
+            {% include 'front_end/partials/product_list.html.twig' %}
+        </div>
+    </div>
+</div>
+
+{# Back to top btn #}
+{# <a href="" class="btn back-to-top">Back to top</a> #}
+<button class="btn btn-primary" id="back-to-top" title="Go to top"><i class="fa fa-chevron-up"></i></button>
+
+{# Offcanvas filters #}
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasFilters" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">{% trans %}Set filters{% endtrans %}</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+
+        <form action="">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default" placeholder="Search">
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">Men</label>
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">Woman</label>
+                </div>
+            </div>
+
+            <div class="input-group mb-3">
+                <label for="customRange3" class="form-label">{% trans %}Maximum Price{% endtrans %}</label>
+                <input type="range" class="form-range" min="0" max="200" step="5" value="20" id="customRange3">
+            </div>
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
+
+{% block javascript_inline %}
+<script>
+    $(document).ready(function () {
+        // Init
+
+        // Amount of loaded products (default 40 products are returned per fetch)
+        // TODO: get count of products to determine productsLoaded
+        let productsLoaded = 0
+
+        // Value which helps to determine if infinite scroll has loaded all products
+        // If productsLoaded < productsIndex all products have been loaded
+        // TODO: get count of products to determine productsIndex
+        let productsIndex = null
+
+        // Load first set of products
+        loadWithAjax()
+
+        // Animate preview display
+        $(document).on('mouseenter',".product-preview", function () {
+            $(this).find(".product-preview-overlay").fadeIn(150)
+        })
+
+        $(document).on('mouseleave', ".product-preview", function () {
+            $(this).find(".product-preview-overlay").fadeOut(150)
+        })
+
+        // Infinite scrolling for products
+        $(window).scroll(function () {
+            if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+                
+                if (productsLoaded == productsIndex) {
+                    loadWithAjax()
+                } else {
+                    // All products have been loaded
+                }
+            }
+        });
+
+        function loadWithAjax() {
+            $.ajax({
+                type: "POST",
+                url: "{{ path("front_end_products_load") }}",
+                data: "index=" + productsLoaded,
+                success: function (response) {
+                    // Update the amount of totally fetched products
+                    productsLoaded = productsLoaded + response.length;
+                    
+                    // Update the amount of the maximum loaded products
+                    productsIndex = productsIndex + response.length
+                    
+                    // Append the products to the products list
+                    response.forEach((product) => {
+                        $('.products-list').append(
+                            `
+                            <div class="products-list-item">
+                                <a href="">
+                                    <div class="product-preview">
+                                        <img src="${product[3]}" class="img-fluid" alt="...">
+                                        <div class="product-preview-overlay" style="display:none">
+                                            <p class="h3">${product[1]}</p>
+                                            <p class="">${product[2]}</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            `
+                        )      
+                    })
+                },
+                error: function (response) {
+                    console.log(response)
+                }
+            });
+        }
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                $('#back-to-top').css('display', 'block');
+            } else {
+                $('#back-to-top').css('display', 'none');
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        $('#back-to-top').on('click', function() {
+            $("html, body").animate({ scrollTop: 0 }, 200);
+            return false;
+        })
+    })
+</script>
+{% endblock %}

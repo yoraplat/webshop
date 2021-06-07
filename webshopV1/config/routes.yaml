@@ -1,0 +1,8 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+app_bundle:
+  # loads routes from bundles
+  resource: './routes/bundles.yaml'
+  prefix: '/{_locale}'

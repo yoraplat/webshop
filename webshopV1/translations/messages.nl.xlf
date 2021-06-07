@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="nl" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="nWMiwfT" resname="Login">
+        <source>Login</source>
+        <target>Inloggen</target>
+      </trans-unit>
+      <trans-unit id="gUNRejk" resname="Select filters">
+        <source>Select filters</source>
+        <target>Selecteer filters</target>
+      </trans-unit>
+      <trans-unit id="ASfczrI" resname="Set filters">
+        <source>Set filters</source>
+        <target>Kies filters</target>
+      </trans-unit>
+      <trans-unit id="koKi1sH" resname="Maximum Price">
+        <source>Maximum Price</source>
+        <target>Maximum Price</target>
+      </trans-unit>
+      <trans-unit id="OnhpU4i" resname="Home">
+        <source>Home</source>
+        <target>Startpagina</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

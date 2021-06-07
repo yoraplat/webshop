@@ -1,0 +1,12 @@
+// Back to top btn
+#back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 60px;
+    z-index: 99;
+
+    i {
+        font-size: 2em;
+    }
+}
