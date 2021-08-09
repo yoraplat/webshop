@@ -1,0 +1,3 @@
+INSERT INTO webshop.product_image (id, product_id, url) VALUES (1, 1, 'https://cdn.shopify.com/s/files/1/0350/7755/4309/products/Pants-Cargo-khaki-10041_1800x1800.jpg?v=1616598244');
+INSERT INTO webshop.product_image (id, product_id, url) VALUES (2, 1, 'https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy/9829d62764fc4c96b8ffac9f00c109b5_9366/R.Y.V._Track_Pants_Blue_GN3325_21_model.jpg');
+INSERT INTO webshop.product_image (id, product_id, url) VALUES (3, 1, 'https://img01.ztat.net/article/spp-media-p1/f905fb55aea93b008f0b8f4da0a47690/302d33a1ff1b4eeeab8dd748047ac55f.jpg?imwidth=762');
