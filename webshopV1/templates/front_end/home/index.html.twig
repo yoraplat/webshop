@@ -17,14 +17,12 @@
     <div class="row product-list-scroll">
         {# Product list #}
         <div class="col">
-            {# {% include 'front_end/partials/product_list.html.twig' with products %} #}
             {% include 'front_end/partials/product_list.html.twig' %}
         </div>
     </div>
 </div>
 
 {# Back to top btn #}
-{# <a href="" class="btn back-to-top">Back to top</a> #}
 <button class="btn btn-primary" id="back-to-top" title="Go to top"><i class="fa fa-chevron-up"></i></button>
 
 {# Offcanvas filters #}
@@ -109,6 +107,15 @@
                 url: "{{ path("front_end_products_load") }}",
                 data: "index=" + productsLoaded,
                 success: function (response) {
+
+                    // Hide the loading icon
+                    $('.loading-icon').hide()
+
+                    if (response.length == 0 && productsLoaded < 1) {
+                        $('.products-list').append(
+                            `<p>No products available</p>`
+                        )
+                    }
                     // Update the amount of totally fetched products
                     productsLoaded = productsLoaded + response.length;
                     
@@ -120,12 +127,12 @@
                         $('.products-list').append(
                             `
                             <div class="products-list-item">
-                                <a href="">
+                                <a href="./product/${product[0]}">
                                     <div class="product-preview">
                                         <img src="${product[3]}" class="img-fluid" alt="...">
                                         <div class="product-preview-overlay" style="display:none">
                                             <p class="h3">${product[1]}</p>
-                                            <p class="">${product[2]}</p>
+                                            <p class="">${product[2].length > 50 ? product[2].substring(0, 50) + '...' : product[2]}</p>
                                         </div>
                                     </div>
                                 </a>

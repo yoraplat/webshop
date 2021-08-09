@@ -4,17 +4,35 @@
 
 <nav class="navbar fixed-top navbar-light bg-light">
 	<div class="container-lg">
-		<a class="navbar-brand">Logo</a>
+		<a class="navbar-brand" href="{{ path('front_end_home') }}">Logo</a>
 		<ul class="navbar-nav d-flex flex-row">
 			<li class="nav-item px-2">
-				<a class="nav-link active" aria-current="page" href="#">{% trans %}Home{% endtrans %}</a>
+				<a class="nav-link active" aria-current="page" href="{{ path('front_end_home') }}">{% trans %}Home{% endtrans %}</a>
 			</li>
+
+			{# If user is logged in #}
+			{% if is_granted('ROLE_USER') %}
 			<li class="nav-item px-2">
-				<a class="nav-link" href="#">{% trans %}Login{% endtrans %}</a>
+				<a class="nav-link" href="{{ path('front_end_cart') }}">
+					{% trans %}Cart{% endtrans %}
+					{# Badge with amount of products in shopping cart #}
+					{% if getCartCount() != 0 %}
+					<span class="badge bg-primary">{{ getCartCount() }}</span>
+					{% endif %}
+				</a>
 			</li>
-			{{ dump(params)}}
+			{% endif %}
+			
 			<li class="nav-item px-2">
-				<p class="nav-link" href="#"><a style="color:grey; text-decoration:none" href="{{ path(route, params|merge({ _locale: 'nl' })) }}">NL</a> | <a style="color:grey; text-decoration:none" href="{{ path(route, params|merge({ _locale: 'en' })) }}">EN</a></p>
+				{% if not is_granted('ROLE_USER') %}
+				<a class="nav-link" href="{{ path('app_login') }}">{% trans %}Login{% endtrans %}</a>
+				{% else %}
+				<a class="nav-link" href="{{ path('app_logout') }}">{% trans %}Logout{% endtrans %}</a>
+				{% endif %}
+			</li>
+		
+			<li class="nav-item px-2">
+				<p class="nav-link" href="#"><a style="color:grey; text-decoration:none" class="{% if params._locale is defined and params._locale == "nl" %}fw-bold{% endif %}" href="{{ path(route, params|merge({ _locale: 'nl' })) }}">NL</a> | <a style="color:grey; text-decoration:none" class="{% if params._locale is not defined or params._locale == "en" %}fw-bold{% endif %}" href="{{ path(route, params|merge({ _locale: 'en' })) }}">EN</a></p>
 			</li>
 		</ul>
 	</div>

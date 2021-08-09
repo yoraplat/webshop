@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+   <br>
+</div>
+<div class="container-fluid mt-5">
+    <div class="row">
+        {% include 'front_end/partials/user_nav.html.twig' with {'active': 'orders'} %}
+        
+        <div class="col-md-9">
+            <div class="col border rounded p-2">
+                <p>Orders page</p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

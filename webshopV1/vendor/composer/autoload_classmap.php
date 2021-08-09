@@ -6,10 +6,17 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Controller\\AuthenticationController' => $baseDir . '/src/Controller/AuthenticationController.php',
     'App\\Controller\\FrontEnd\\HomeController' => $baseDir . '/src/Controller/FrontEnd/HomeController.php',
+    'App\\Controller\\FrontEnd\\ProductController' => $baseDir . '/src/Controller/FrontEnd/ProductController.php',
     'App\\Entity\\Product' => $baseDir . '/src/Entity/Product.php',
+    'App\\Entity\\ProductImage' => $baseDir . '/src/Entity/ProductImage.php',
+    'App\\Entity\\User' => $baseDir . '/src/Entity/User.php',
     'App\\Kernel' => $baseDir . '/src/Kernel.php',
+    'App\\Repository\\ProductImageRepository' => $baseDir . '/src/Repository/ProductImageRepository.php',
     'App\\Repository\\ProductRepository' => $baseDir . '/src/Repository/ProductRepository.php',
+    'App\\Repository\\UserRepository' => $baseDir . '/src/Repository/UserRepository.php',
+    'App\\Security\\LoginFormAuthenticator' => $baseDir . '/src/Security/LoginFormAuthenticator.php',
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
     'Collator' => $vendorDir . '/symfony/polyfill-intl-icu/Resources/stubs/Collator.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
