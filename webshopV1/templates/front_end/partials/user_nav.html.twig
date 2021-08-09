@@ -1,0 +1,19 @@
+<div class="col-md-3">
+	<div class="col bg-light rounded">
+		<ul class="list-group">
+			<li class="list-group-item">
+				<a class="text-decoration-none {{ active == "cart"? 'text-secondary' }}" href="{{ path('front_end_cart') }}">{% trans %}Shopping Cart{% endtrans %}
+					{% if getCartCount() != 0 %}
+					<span class="badge bg-primary">{{ getCartCount() }}</span>
+					{% endif %}
+				</a>
+			</li>
+			<li class="list-group-item">
+				<a class="text-decoration-none {{ active == "orders"? 'text-secondary' }}" href="{{ path('front_end_orders') }}">{% trans %}Orders{% endtrans %}</a>
+			</li>
+			<li class="list-group-item">
+				<a class="text-decoration-none {{ active == "profile"? 'text-secondary' }}" href="{{ path('front_end_profile') }}">{% trans %}Profile{% endtrans %}</a>
+			</li>
+		</ul>
+	</div>
+</div>

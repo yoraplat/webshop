@@ -1,0 +1,109 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Homepage
+{% endblock %}
+
+{% block body %}
+	<div class="container-fluid">
+		<br>
+	</div>
+	<div class="container mt-5">
+		<div class="row">
+
+			<div class="col-sm-12 col-md-6">
+				{# Carousel #}
+					<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel"> <div class="carousel-indicators">
+						<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+						<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+						<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+					</div>
+					<div class="carousel-inner">
+						{% for image in images %}
+							<div class="carousel-item {% if loop.first %}active{% endif %}">
+								<img src="{{ image.url }}" class="d-block w-100" alt="...">
+							</div>
+						{% endfor %}
+
+					</div>
+					<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Previous</span>
+					</button>
+					<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Next</span>
+					</button>
+				</div>
+			</div>
+
+			<div class="col-sm-12 col-md-6">
+				<div>
+					<p class="h1 text-uppercase">{{ product.title }}</p>
+					<p class="text-secondary text-uppercase">Product category</p>
+				</div>
+				<div>
+					<p class="">€59,99</p>
+					<p class="h6">Description</p>
+				</div>
+				<hr>
+				<div>
+					<p>{{ product.description }}</p>
+					<p class="h6">Options</p>
+				</div>
+				<hr>
+				<div class="mb-3">
+					<div class="form-floating">
+						<select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+							<option selected>{% trans %}Select a size{% endtrans %}</option>
+							<option value="1">Small</option>
+							<option value="2">Medium</option>
+							<option value="3">Large</option>
+							<option value="4">Extra Large</option>
+						</select>
+						<label for="floatingSelect">{% trans %}Size{% endtrans %}</label>
+					</div>
+				</div>
+
+				<div class="mb-3">
+					<div class="form-floating">
+						<select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+							<option selected>{% trans %}Choose a color{% endtrans %}</option>
+							<option value="1">Red</option>
+							<option value="2">White</option>
+							<option value="3">Green</option>
+							<option value="4">Yellow</option>
+						</select>
+						<label for="floatingSelect">{% trans %}Color{% endtrans %}</label>
+					</div>
+				</div>
+
+				<a href="#" class="btn btn-primary add-btn">{% trans %}<i class="fa fa-shopping-cart"></i> Add to cart{% endtrans %}</a>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block javascript_inline %}
+<script>
+    $(document).ready(function () {
+        
+		$('.add-btn').click(function() {
+			addToCart()
+		})
+
+        function addToCart() {
+            $.ajax({
+                type: "POST",
+                url: "{{ path("front_end_add_product_to_cart") }}",
+                data: "product_id=" + 10 + ", " + "amount=" + 1,
+                success: function (response) {
+					location.reload()
+                },
+                error: function (response) {
+					
+                }
+            });
+        }
+    })
+</script>
+{% endblock %}

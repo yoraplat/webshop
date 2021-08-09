@@ -7,3 +7,13 @@ front_end:
   # this is added to the beginning of all imported route names
   name_prefix: 'front_end_'
   # these requirements are added to all imported routes
+
+# Security
+security:
+  resource: '../../src/Controller/Security/'
+  type: 'annotation'
+  # this is added to the beginning of all imported route URLs
+  prefix: '/auth'
+  # this is added to the beginning of all imported route names
+  name_prefix: 'authentication_'
+  # these requirements are added to all imported routes

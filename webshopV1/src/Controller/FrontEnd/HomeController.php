@@ -14,11 +14,7 @@ class HomeController extends AbstractController
     #[Route('/', name: 'home')]
     public function index(): Response
     {
-        $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
-        
-        return $this->render('front_end/home/index.html.twig', [
-            'products' => $products,
-        ]);
+        return $this->render('front_end/home/index.html.twig');
     }
     
     #[Route('/products/load', name: 'products_load')]

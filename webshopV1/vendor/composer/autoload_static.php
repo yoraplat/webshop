@@ -602,10 +602,17 @@ class ComposerStaticInit1c2905f3215d76b23bc62fde97b3e34d
     );
 
     public static $classMap = array (
+        'App\\Controller\\AuthenticationController' => __DIR__ . '/../..' . '/src/Controller/AuthenticationController.php',
         'App\\Controller\\FrontEnd\\HomeController' => __DIR__ . '/../..' . '/src/Controller/FrontEnd/HomeController.php',
+        'App\\Controller\\FrontEnd\\ProductController' => __DIR__ . '/../..' . '/src/Controller/FrontEnd/ProductController.php',
         'App\\Entity\\Product' => __DIR__ . '/../..' . '/src/Entity/Product.php',
+        'App\\Entity\\ProductImage' => __DIR__ . '/../..' . '/src/Entity/ProductImage.php',
+        'App\\Entity\\User' => __DIR__ . '/../..' . '/src/Entity/User.php',
         'App\\Kernel' => __DIR__ . '/../..' . '/src/Kernel.php',
+        'App\\Repository\\ProductImageRepository' => __DIR__ . '/../..' . '/src/Repository/ProductImageRepository.php',
         'App\\Repository\\ProductRepository' => __DIR__ . '/../..' . '/src/Repository/ProductRepository.php',
+        'App\\Repository\\UserRepository' => __DIR__ . '/../..' . '/src/Repository/UserRepository.php',
+        'App\\Security\\LoginFormAuthenticator' => __DIR__ . '/../..' . '/src/Security/LoginFormAuthenticator.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Collator' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/Resources/stubs/Collator.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
