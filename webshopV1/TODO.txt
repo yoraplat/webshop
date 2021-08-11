@@ -1,0 +1,2 @@
+Add toasts to confirm user actions
+e.g:    Succesfully added an item to cart

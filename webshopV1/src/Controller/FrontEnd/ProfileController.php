@@ -32,7 +32,7 @@ class ProfileController extends AbstractController
     #[Route('/orders', name: 'orders')]
     public function orders(ShoppingCartService $cart): Response
     {
-        // $cart->clearAll();
+        $cart->clearAll();
         return $this->render('front_end/profile/orders.html.twig', [
             'controller_name' => 'ProfileController',
         ]);

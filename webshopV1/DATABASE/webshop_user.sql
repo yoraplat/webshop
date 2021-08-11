@@ -1,0 +1,1 @@
+INSERT INTO webshop.user (id, email, first_name, last_name, password, roles) VALUES (3, 'yoram.platteeuw@telenet.be', 'Yoram', 'Platteeuw', '$2y$13$bfAirLy7givyITtCDDRhnellANZe.nWU4A5PtvBllSTPdOt6TRmre', '["ROLE_USER"]');

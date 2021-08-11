@@ -19,11 +19,91 @@
       </trans-unit>
       <trans-unit id="koKi1sH" resname="Maximum Price">
         <source>Maximum Price</source>
-        <target>Maximum Price</target>
+        <target>Maximum Prijs</target>
       </trans-unit>
       <trans-unit id="OnhpU4i" resname="Home">
         <source>Home</source>
         <target>Startpagina</target>
+      </trans-unit>
+      <trans-unit id="cLWF5XF" resname="Item(s) has been added to your cart">
+        <source>Item(s) has been added to your cart</source>
+        <target>Item(s) is toegevoegd aan je winkelwagen</target>
+      </trans-unit>
+      <trans-unit id="NXmPalk" resname="Shopping Cart">
+        <source>Shopping Cart</source>
+        <target>Winkelwagen</target>
+      </trans-unit>
+      <trans-unit id="t_is3VI" resname="Orders">
+        <source>Orders</source>
+        <target>Orders</target>
+      </trans-unit>
+      <trans-unit id="1pajW90" resname="Profile">
+        <source>Profile</source>
+        <target>Profiel</target>
+      </trans-unit>
+      <trans-unit id="ZXnlvq9" resname="Select a size">
+        <source>Select a size</source>
+        <target>Selecteer een maat</target>
+      </trans-unit>
+      <trans-unit id="GvhRkHM" resname="Size">
+        <source>Size</source>
+        <target>Maat</target>
+      </trans-unit>
+      <trans-unit id="rYqcUBi" resname="Choose a color">
+        <source>Choose a color</source>
+        <target>Kies een kleur</target>
+      </trans-unit>
+      <trans-unit id="a3MZGgp" resname="Color">
+        <source>Color</source>
+        <target>Kleur</target>
+      </trans-unit>
+      <trans-unit id="SeltfN9" resname="Amount">
+        <source>Amount</source>
+        <target>Aantal</target>
+      </trans-unit>
+      <trans-unit id="DpQINTx" resname="Add to cart">
+        <source>Add to cart</source>
+        <target>Toevoegen aan winkelwagen</target>
+      </trans-unit>
+      <trans-unit id="bS1ZrtR" resname="Cart">
+        <source>Cart</source>
+        <target>Winkelwagen</target>
+      </trans-unit>
+      <trans-unit id="0FJ_Sz1" resname="Logout">
+        <source>Logout</source>
+        <target>Uitloggen</target>
+      </trans-unit>
+      <trans-unit id="_574lBd" resname="Product">
+        <source>Product</source>
+        <target>Product</target>
+      </trans-unit>
+      <trans-unit id="giurjUG" resname="Quantity">
+        <source>Quantity</source>
+        <target>Hoeveelheid</target>
+      </trans-unit>
+      <trans-unit id="k8kchR5" resname="Price">
+        <source>Price</source>
+        <target>Prijs</target>
+      </trans-unit>
+      <trans-unit id="RRL_BAj" resname="SIZE">
+        <source>SIZE</source>
+        <target>MAAT</target>
+      </trans-unit>
+      <trans-unit id="w4EvxKy" resname="Remove">
+        <source>Remove</source>
+        <target>Verwijderen</target>
+      </trans-unit>
+      <trans-unit id="naepTwi" resname="Total price">
+        <source>Total price</source>
+        <target>Totale prijs</target>
+      </trans-unit>
+      <trans-unit id="y3LsmFt" resname="Discount">
+        <source>Discount</source>
+        <target>Korting</target>
+      </trans-unit>
+      <trans-unit id="ybPDgkf" resname="Total">
+        <source>Total</source>
+        <target>Totaal</target>
       </trans-unit>
     </body>
   </file>

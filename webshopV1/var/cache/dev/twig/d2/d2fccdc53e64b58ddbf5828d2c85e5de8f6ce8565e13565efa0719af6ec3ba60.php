@@ -476,6 +476,6 @@ class __TwigTemplate_8f9c9efa1e10167732f3c26ee4f80e2905bc7515708ea173b4dbfe1f9c8
         })
     })
 </script>
-{% endblock %}", "front_end/home/index.html.twig", "D:\\data\\Documents\\projecten\\symfony5_webshop\\webshopV1\\templates\\front_end\\home\\index.html.twig");
+{% endblock %}", "front_end/home/index.html.twig", "D:\\data\\Documents\\projecten\\symfony_webshop\\webshopV1\\templates\\front_end\\home\\index.html.twig");
     }
 }

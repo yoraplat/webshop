@@ -51,33 +51,62 @@
 					<p class="h6">Options</p>
 				</div>
 				<hr>
-				<div class="mb-3">
-					<div class="form-floating">
-						<select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-							<option selected>{% trans %}Select a size{% endtrans %}</option>
-							<option value="1">Small</option>
-							<option value="2">Medium</option>
-							<option value="3">Large</option>
-							<option value="4">Extra Large</option>
-						</select>
-						<label for="floatingSelect">{% trans %}Size{% endtrans %}</label>
+				<form>
+					<div class="mb-3">
+						<div class="form-floating">
+							<select class="form-select selectSize" id="floatingSelect" aria-label="Select a size" required>
+								<option hidden value="">{% trans %}Select a size{% endtrans %}</option>
+								<option value="s">Small</option>
+								<option value="m">Medium</option>
+								<option value="l">Large</option>
+								<option value="xl">Extra Large</option>
+							</select>
+							<label for="floatingSelect">{% trans %}Size{% endtrans %}</label>
+						</div>
 					</div>
-				</div>
 
-				<div class="mb-3">
-					<div class="form-floating">
-						<select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-							<option selected>{% trans %}Choose a color{% endtrans %}</option>
-							<option value="1">Red</option>
-							<option value="2">White</option>
-							<option value="3">Green</option>
-							<option value="4">Yellow</option>
-						</select>
-						<label for="floatingSelect">{% trans %}Color{% endtrans %}</label>
+					<div class="mb-3">
+						<div class="form-floating">
+							<select class="form-select selectColor" id="floatingSelect" aria-label="Select a color" required>
+								<option hidden value="">{% trans %}Choose a color{% endtrans %}</option>
+								<option value="red">Red</option>
+								<option value="white">White</option>
+								<option value="green">Green</option>
+								<option value="yellow">Yellow</option>
+							</select>
+							<label for="floatingSelect">{% trans %}Color{% endtrans %}</label>
+						</div>
 					</div>
-				</div>
 
-				<a href="#" class="btn btn-primary add-btn">{% trans %}<i class="fa fa-shopping-cart"></i> Add to cart{% endtrans %}</a>
+					<div class="mb-3">
+						<div class="form-floating">
+							<select class="form-select selectAmount" id="floatingSelect" aria-label="Select an amount">
+								<option selected value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+							</select>
+							<label for="floatingSelect">{% trans %}Amount{% endtrans %}</label>
+						</div>
+					</div>
+				<button class="btn btn-primary add-btn" {% if not is_granted('ROLE_USER') %}disabled{% endif %} type="submit">
+					<div class="spinner-border spinner-border-sm text-light" style="display:none" id="postLoader" role="status">
+						<span class="visually-hidden">Loading...</span>
+					</div>
+					<i class="fa fa-shopping-cart" id="cartIcon"></i> 
+					 {% if not is_granted('ROLE_USER') %}
+					 {% trans %}Login{% endtrans %}
+					 {% else %}
+					 {% trans %}Add to cart{% endtrans %}
+					 {% endif %}
+				</button>
+				</form>
 			</div>
 		</div>
 	</div>
@@ -86,17 +115,37 @@
 {% block javascript_inline %}
 <script>
     $(document).ready(function () {
+
+		// Show notification toasts
+		$('.toast').toast('show');
+
+		// Initialize the default values of the selectable values
+		let amount = 1;
+		let size = null;
+		let color = null;
         
+		// Listen for click on the "Add to cart" button
 		$('.add-btn').click(function() {
-			addToCart()
+
+			// Validate if all obligatory select fields are set
+			if (size != null && color != null) {
+				addToCart()
+			}
 		})
 
         function addToCart() {
             $.ajax({
                 type: "POST",
                 url: "{{ path("front_end_add_product_to_cart") }}",
-                data: "product_id=" + 10 + ", " + "amount=" + 1,
-                success: function (response) {
+                data: {"product_id": {{ product.id }}, "amount": amount, "size": size, "color": color},
+				
+				// Initialize loading spinner
+				beforeSend: function() {
+					$('#postLoader').show();
+					$('#cartIcon').hide();
+				},
+
+				success: function (response) {
 					location.reload()
                 },
                 error: function (response) {
@@ -104,6 +153,21 @@
                 }
             });
         }
+
+		// Listen for changes in selection of an amount
+		$('.selectAmount').on('change', function() {
+			amount = this.value;
+		});
+		
+		// Listen for changes in selection of a size
+		$('.selectSize').on('change', function() {
+			size = this.value;
+		});
+		
+		// Listen for changes in selection of a color
+		$('.selectColor').on('change', function() {
+			color = this.value;
+		});
     })
 </script>
 {% endblock %}

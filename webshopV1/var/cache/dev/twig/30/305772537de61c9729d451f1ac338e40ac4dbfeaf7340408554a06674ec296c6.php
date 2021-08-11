@@ -199,6 +199,6 @@ class __TwigTemplate_db8f24aa8611942775c02acb5f6b28b20024aca66ee7dfb319b54646e48
 \t\t\t</li>
 \t\t</ul>
 \t</div>
-</nav>", "partials/navigation.html.twig", "D:\\data\\Documents\\projecten\\symfony5_webshop\\webshopV1\\templates\\partials\\navigation.html.twig");
+</nav>", "partials/navigation.html.twig", "D:\\data\\Documents\\projecten\\symfony_webshop\\webshopV1\\templates\\partials\\navigation.html.twig");
     }
 }

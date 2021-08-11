@@ -80,6 +80,6 @@ class __TwigTemplate_5a4fdde8a533f40e28ca024f845ff4b1f88f433a3f0cd9845641a18399e
 </div>
 
 
-", "front_end/partials/product_list.html.twig", "D:\\data\\Documents\\projecten\\symfony5_webshop\\webshopV1\\templates\\front_end\\partials\\product_list.html.twig");
+", "front_end/partials/product_list.html.twig", "D:\\data\\Documents\\projecten\\symfony_webshop\\webshopV1\\templates\\front_end\\partials\\product_list.html.twig");
     }
 }
