@@ -49,7 +49,7 @@ class ShoppingCartService
 
         if ($products != null) {
             foreach($products as $product) {
-                if ($product['product_id'] == $newProduct['product_id']) {
+                if ($product['product_id'] == $newProduct['product_id'] && $newProduct['size'] == $product['size'] && $newProduct['color'] == $product['color']) {
                     // Matching product id found
                     // Update the corresponding product amount with the selected amount of the new product
                     $products[$counter]['amount'] = $product['amount'] + $newProduct['amount'];
@@ -62,7 +62,7 @@ class ShoppingCartService
                 $counter++;
             }
         } else {
-            // create a new array because the given products == null
+            // create a new array because the given products == null or the product is already in the cart but has another size or color
             $newArray = [$newProduct];
             $this->session->set('cart', $newArray);
             // dd($this->session->get('cart'));

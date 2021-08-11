@@ -70,14 +70,55 @@ class __TwigTemplate_b485259e13e3844e467c3394a292213b35eb256d2da8773d8159f4f685e
         // line 15
         echo "
         ";
-        // line 16
+        // line 17
+        echo "        <div class=\"toast-container position-absolute top-0 end-0 on-top\">
+        ";
+        // line 18
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 18, $this->source); })()), "flashes", [0 => [0 => "success", 1 => "error"]], "method", false, false, false, 18));
+        foreach ($context['_seq'] as $context["label"] => $context["messages"]) {
+            // line 19
+            echo "            ";
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable($context["messages"]);
+            foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
+                // line 20
+                echo "                <div class=\"toast align-items-center text-white bg-";
+                echo ((($context["label"] == "success")) ? ("primary") : ("danger"));
+                echo " border-0\" role=\"alert\" aria-live=\"assertive\" aria-atomic=\"true\">
+                    <div class=\"d-flex\">
+                        <div class=\"toast-body\">
+                        ";
+                // line 23
+                echo twig_escape_filter($this->env, $context["message"], "html", null, true);
+                echo "
+                        </div>
+                        <button type=\"button\" class=\"btn-close btn-close-white me-2 m-auto\" data-bs-dismiss=\"toast\" aria-label=\"Close\"></button>
+                    </div>
+                </div>
+            ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['message'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 29
+            echo "        ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['label'], $context['messages'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 30
+        echo "        </div>
+
+        ";
+        // line 32
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 22
+        // line 38
         echo "        
         ";
-        // line 23
+        // line 39
         $this->displayBlock('javascript_inline', $context, $blocks);
-        // line 25
+        // line 41
         echo "    </body>
 </html>
 ";
@@ -151,7 +192,7 @@ class __TwigTemplate_b485259e13e3844e467c3394a292213b35eb256d2da8773d8159f4f685e
 
     }
 
-    // line 16
+    // line 32
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -161,12 +202,12 @@ class __TwigTemplate_b485259e13e3844e467c3394a292213b35eb256d2da8773d8159f4f685e
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 17
+        // line 33
         echo "        <script src=\"https://code.jquery.com/jquery-3.6.0.min.js\"></script>
         <script src=\"https://code.jquery.com/ui/1.12.1/jquery-ui.min.js\"></script>
 
             ";
-        // line 20
+        // line 36
         echo $this->extensions['Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension']->renderWebpackScriptTags("app");
         echo "
         ";
@@ -178,7 +219,7 @@ class __TwigTemplate_b485259e13e3844e467c3394a292213b35eb256d2da8773d8159f4f685e
 
     }
 
-    // line 23
+    // line 39
     public function block_javascript_inline($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -188,7 +229,7 @@ class __TwigTemplate_b485259e13e3844e467c3394a292213b35eb256d2da8773d8159f4f685e
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascript_inline"));
 
-        // line 24
+        // line 40
         echo "        ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -210,7 +251,7 @@ class __TwigTemplate_b485259e13e3844e467c3394a292213b35eb256d2da8773d8159f4f685e
 
     public function getDebugInfo()
     {
-        return array (  192 => 24,  182 => 23,  170 => 20,  165 => 17,  155 => 16,  145 => 14,  135 => 13,  122 => 8,  112 => 7,  93 => 5,  81 => 25,  79 => 23,  76 => 22,  74 => 16,  71 => 15,  68 => 13,  66 => 12,  61 => 9,  59 => 7,  54 => 5,  48 => 1,);
+        return array (  233 => 40,  223 => 39,  211 => 36,  206 => 33,  196 => 32,  186 => 14,  176 => 13,  163 => 8,  153 => 7,  134 => 5,  122 => 41,  120 => 39,  117 => 38,  115 => 32,  111 => 30,  105 => 29,  93 => 23,  86 => 20,  81 => 19,  77 => 18,  74 => 17,  71 => 15,  68 => 13,  66 => 12,  61 => 9,  59 => 7,  54 => 5,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -230,6 +271,22 @@ class __TwigTemplate_b485259e13e3844e467c3394a292213b35eb256d2da8773d8159f4f685e
         {% block body %}
         {% endblock %}
 
+        {# Flash messages #}
+        <div class=\"toast-container position-absolute top-0 end-0 on-top\">
+        {% for label, messages in app.flashes(['success', 'error']) %}
+            {% for message in messages %}
+                <div class=\"toast align-items-center text-white bg-{{ label == 'success' ? 'primary' : 'danger' }} border-0\" role=\"alert\" aria-live=\"assertive\" aria-atomic=\"true\">
+                    <div class=\"d-flex\">
+                        <div class=\"toast-body\">
+                        {{ message }}
+                        </div>
+                        <button type=\"button\" class=\"btn-close btn-close-white me-2 m-auto\" data-bs-dismiss=\"toast\" aria-label=\"Close\"></button>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endfor %}
+        </div>
+
         {% block javascripts %}
         <script src=\"https://code.jquery.com/jquery-3.6.0.min.js\"></script>
         <script src=\"https://code.jquery.com/ui/1.12.1/jquery-ui.min.js\"></script>
@@ -241,6 +298,6 @@ class __TwigTemplate_b485259e13e3844e467c3394a292213b35eb256d2da8773d8159f4f685e
         {% endblock %}
     </body>
 </html>
-", "base.html.twig", "D:\\data\\Documents\\projecten\\symfony5_webshop\\webshopV1\\templates\\base.html.twig");
+", "base.html.twig", "D:\\data\\Documents\\projecten\\symfony_webshop\\webshopV1\\templates\\base.html.twig");
     }
 }

@@ -152,6 +152,6 @@ class __TwigTemplate_5e849fdbd6e35ed109e997a0ebf899e830505cdf1880db42f51dc628f3a
 
 </div>
 {% endblock %}
-", "front_end/profile/orders.html.twig", "D:\\data\\Documents\\projecten\\symfony5_webshop\\webshopV1\\templates\\front_end\\profile\\orders.html.twig");
+", "front_end/profile/orders.html.twig", "D:\\data\\Documents\\projecten\\symfony_webshop\\webshopV1\\templates\\front_end\\profile\\orders.html.twig");
     }
 }

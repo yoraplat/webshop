@@ -644,6 +644,6 @@ class __TwigTemplate_cea1c0da79eb054e241845a8c3b398645474214f5567a5a9c69a8f7ee9e
         </div>
     {% endfor %}
 {% endblock %}
-", "@WebProfiler/Collector/notifier.html.twig", "D:\\data\\Documents\\projecten\\symfony5_webshop\\webshopV1\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\notifier.html.twig");
+", "@WebProfiler/Collector/notifier.html.twig", "D:\\data\\Documents\\projecten\\symfony_webshop\\webshopV1\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\notifier.html.twig");
     }
 }

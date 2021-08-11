@@ -131,6 +131,6 @@ class __TwigTemplate_74940c5be227f54c71fe811572f5da5a8ad486ced607783379f4cc0a503
 \t\t</ul>
 \t</div>
 </div>
-", "front_end/partials/user_nav.html.twig", "D:\\data\\Documents\\projecten\\symfony5_webshop\\webshopV1\\templates\\front_end\\partials\\user_nav.html.twig");
+", "front_end/partials/user_nav.html.twig", "D:\\data\\Documents\\projecten\\symfony_webshop\\webshopV1\\templates\\front_end\\partials\\user_nav.html.twig");
     }
 }
